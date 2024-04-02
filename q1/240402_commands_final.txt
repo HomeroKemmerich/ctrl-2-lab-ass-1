@@ -1,0 +1,72 @@
+G_1 = tf(5/2, [1 5.5 2.5]);
+clear
+clc
+G_1 = tf(5/2, [1 5.5 2.5]);
+
+step(G_1)
+step(G_1)
+t =  0:0.1:14;
+[y, t] = step(G_1);
+figure; plot(t, y)
+Variables have been created in the base workspace.
+p = fit.coeff;
+dp = polyder(p);
+ddp = polyder(dp);
+roots(ddp)
+
+ans =
+
+  11.7217 + 0.0000i
+   9.7806 + 0.0000i
+   8.8513 + 0.0000i
+   5.0220 + 1.8093i
+   5.0220 - 1.8093i
+   0.3167 + 0.0000i
+
+% x = 0.3167s
+x = ans(6);
+a = polyval(dp, x);
+b = polyval(p, x) - a * x;
+G_1_ = [a b];
+y_G_1_ = a.*t + b;
+figure; plot(t, y, 'k-', t, y_G_1_, 'b--');
+axis([0 2 -1 1])
+grid
+axis([0 0.2 -0.2 0.2])
+L = -b/a;
+t_1 = (10 - b) / a;
+T = t_1 - L;
+s = tf('s');
+C_PI = 0.6 * T * (s + 1/L)^2 / s;
+zpk(C_PI)
+
+ans =
+ 
+  16.508 (s+11.89)^2
+  ------------------
+          s
+ 
+Continuous-time zero/pole/gain model.
+<a href="matlab:disp(char('','                Z: {[2×1 double]} ','                P: {[0]} ','                K: 16.5077 ','    DisplayFormat: ''roots'' ','         Variable: ''s'' ','          IODelay: 0 ','       InputDelay: 0 ','      OutputDelay: 0 ','        InputName: {''''} ','        InputUnit: {''''} ','       InputGroup: [1×1 struct] ','       OutputName: {''''} ','       OutputUnit: {''''} ','      OutputGroup: [1×1 struct] ','            Notes: [0×1 string] ','         UserData: [] ','             Name: '''' ','               Ts: 0 ','         TimeUnit: ''seconds'' ','     SamplingGrid: [1×1 struct] ',' '))">Model Properties</a>
+% fechando a malha
+oloop_C_PI = C_PI * G_1;
+cloop_C_PI = feedback(oloop_C_PI, 1);
+figure; step(cloop_C_PI)
+grid
+stepinfo(cloop_C_PI)
+
+ans = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+         RiseTime: 0.0299
+    TransientTime: 0.1776
+     SettlingTime: 0.1776
+      SettlingMin: 0.9298
+      SettlingMax: 1.2104
+        Overshoot: 21.0444
+       Undershoot: 0
+             Peak: 1.2104
+         PeakTime: 0.0807
+
+diary off

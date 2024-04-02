@@ -1,0 +1,56 @@
+G1 = tf(5\2, [1 5.5 2.5])
+
+G1 =
+ 
+         0.4
+  -----------------
+  s^2 + 5.5 s + 2.5
+ 
+Continuous-time transfer function.
+<a href="matlab:disp(char('','       Numerator: {[0 0 0.4000]} ','     Denominator: {[1 5.5000 2.5000]} ','        Variable: ''s'' ','         IODelay: 0 ','      InputDelay: 0 ','     OutputDelay: 0 ','       InputName: {''''} ','       InputUnit: {''''} ','      InputGroup: [1×1 struct] ','      OutputName: {''''} ','      OutputUnit: {''''} ','     OutputGroup: [1×1 struct] ','           Notes: [0×1 string] ','        UserData: [] ','            Name: '''' ','              Ts: 0 ','        TimeUnit: ''seconds'' ','    SamplingGrid: [1×1 struct] ',' '))">Model Properties</a>
+G_1 = tf(5\2, [1 5.5 2.5]);
+delete G1
+[Warning: File 'G1' not found.] 
+clear G1
+step(G_1)
+t =  0:0.1:14;
+[y, t] = step(G_1);
+figure; plot(t, y)
+Variables have been created in the base workspace.
+p = fit.coeff
+
+p =
+
+    0.0000   -0.0000    0.0000   -0.0004    0.0027   -0.0093    0.0074    0.0560   -0.0047
+
+dp = polyder(p);
+ddp = polyder(dp);
+roots(ddp)
+
+ans =
+
+  11.7217 + 0.0000i
+   9.7806 + 0.0000i
+   8.8513 + 0.0000i
+   5.0220 + 1.8093i
+   5.0220 - 1.8093i
+   0.3167 + 0.0000i
+
+% x = 0.3167s
+x = ans(6);
+a = polyval(dp, x);
+b = polyval(p, x) - a * x;
+G_1_ = [a b];
+y_G_1_ = a.*t + b;
+figure; plot(t, y, 'k-', t, y_G_1_, 'b--');
+axis([0 2 -0.1 0.1])
+axis([0 0.6 -0.02 0.02])
+grid
+L = -b\a;
+1\2
+
+ans =
+
+     2
+
+diary off
