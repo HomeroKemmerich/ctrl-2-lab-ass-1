@@ -78,3 +78,62 @@ In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('open
 In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('openfig', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\graphics\objectsystem\openfig.m', 40)" style="font-weight:bold">openfig</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\graphics\objectsystem\openfig.m',40,0)">line 40</a>)
 In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('open', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\general\open.m', 139)" style="font-weight:bold">open</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\general\open.m',139,0)">line 139</a>)
 In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('uiopen', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\uiopen.m', 125)" style="font-weight:bold">uiopen</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\uiopen.m',125,0)">line 125</a>)] 
+G = tf(21, poly([-1 -3 -7]));
+K_u = 15.5
+
+K_u =
+
+   15.5000
+
+cloop_G = feedback(K_u * G, 1);
+save 240402_workspace
+delta_t = 6.724;
+cicle_count = 6;
+T_u = delta_t / cicle_count;
+%Ganhos do PID de acordo com a tabela
+K_p = 0.6 * K_u;
+K_i = 1.2 * (K_u/T_u);
+K_d = 0.075 * (K_u * T_u);
+K_p = 0.6 * K_u;
+K_p
+
+K_p =
+
+    9.3000
+
+K_i
+
+K_i =
+
+   16.5973
+
+K_d
+
+K_d =
+
+    1.3028
+
+K_p = (1/3) * K_u;
+K_p = (2/3) * (K_u/T_u);
+K_p = (1/9) * (K_u*T_u);
+K_p = (1/3) * K_u;
+K_i = (2/3) * (K_u/T_u);
+K_d = (1/9) * (K_u*T_u);
+K_p
+
+K_p =
+
+    5.1667
+
+K_i
+
+K_i =
+
+    9.2207
+
+K_d
+
+K_d =
+
+    1.9300
+
