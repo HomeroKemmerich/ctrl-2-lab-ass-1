@@ -1,7 +1,7 @@
 ---
 aliases:
     - oloop
-    - Resosta em malha aberta
+    - Resposta em malha aberta
 ---
 # Resposta em malha aberta
 
