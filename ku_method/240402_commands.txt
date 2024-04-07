@@ -12,7 +12,7 @@ Continuous-time zero/pole/gain model.
 <a href="matlab:disp(char('','                Z: {[0×1 double]} ','                P: {[3×1 double]} ','                K: 21 ','    DisplayFormat: ''roots'' ','         Variable: ''s'' ','          IODelay: 0 ','       InputDelay: 0 ','      OutputDelay: 0 ','        InputName: {''''} ','        InputUnit: {''''} ','       InputGroup: [1×1 struct] ','       OutputName: {''''} ','       OutputUnit: {''''} ','      OutputGroup: [1×1 struct] ','            Notes: [0×1 string] ','         UserData: [] ','             Name: '''' ','               Ts: 0 ','         TimeUnit: ''seconds'' ','     SamplingGrid: [1×1 struct] ',' '))">Model Properties</a>
 rlocus(G)
 grid
-K_u = 15.5
+
 
 K_u =
 
