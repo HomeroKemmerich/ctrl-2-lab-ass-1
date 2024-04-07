@@ -1,0 +1,134 @@
+clear
+clc
+G = tf(21, poly([-1 -3 -7]));
+dcgain(G)
+
+ans =
+
+     1
+
+save 240407_workspace
+T = ans;
+[Warning: In a future release, UI components will not be included in the output. To include UI components,
+use the exportapp function.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\graphics\printing\print.m', 86)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\graphics\printing\print.m',86,0)">line 86</a>)
+In hgexport
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn>localSaveExportHelper', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 225)" style="font-weight:bold">filemenufcn>localSaveExportHelper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',225,0)">line 225</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn>localSaveExport', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 350)" style="font-weight:bold">filemenufcn>localSaveExport</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',350,0)">line 350</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 58)" style="font-weight:bold">filemenufcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',58,0)">line 58</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn>localSave', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 188)" style="font-weight:bold">filemenufcn>localSave</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',188,0)">line 188</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 56)" style="font-weight:bold">filemenufcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',56,0)">line 56</a>)] 
+a = 14.94;
+T_u = 2.001;
+d = 60;
+[Warning: In a future release, UI components will not be included in the output. To include UI components,
+use the exportapp function.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\graphics\printing\print.m', 86)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\graphics\printing\print.m',86,0)">line 86</a>)
+In hgexport
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn>localSaveExportHelper', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 225)" style="font-weight:bold">filemenufcn>localSaveExportHelper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',225,0)">line 225</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn>localSaveExport', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 350)" style="font-weight:bold">filemenufcn>localSaveExport</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',350,0)">line 350</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 58)" style="font-weight:bold">filemenufcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',58,0)">line 58</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn>localSave', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 188)" style="font-weight:bold">filemenufcn>localSave</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',188,0)">line 188</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 56)" style="font-weight:bold">filemenufcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',56,0)">line 56</a>)] 
+K_u = (4 * d) / (pi * a);
+K_p = 0.6 * K_u;
+K_i = 1.2 * (K_u / T_u);
+K_d = 0.074 * (K_u * T_u);
+K_d = 0.075 * (K_u * T_u);
+zpk(G_)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('zpk')" style="font-weight:bold">zpk</a>
+In the "zpk(M)" command, M must be a numeric array.
+} 
+step(G_)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('step')" style="font-weight:bold">step</a>
+Not enough input arguments.
+} 
+G_
+  <a href="matlab: help timeseries">timeseries</a>
+
+  Common Properties:
+            Name: ''
+            Time: [169x1 double]
+        TimeInfo: <a href="matlab: fprintf(['  ' char(60) 'a href=' char(34) 'matlab: help tsdata.timemetadata' char(34) '' char(62) 'tsdata.timemetadata' char(60) '/a' char(62) '\n  Package: tsdata\n\n  Non-Uniform Time:\n    Length       169\n\n  Time Range:\n    Start        0 seconds\n    End          6 seconds\n\n  Common Properties:\n          Units: ''seconds''\n         Format: ''''\n      StartDate: ''''\n\n  ' char(60) 'a href=' char(34) 'matlab: properties(''tsdata.timemetadata'')' char(34) '' char(62) 'More properties' char(60) '/a' char(62) ', ' char(60) 'a href=' char(34) 'matlab: methods(''tsdata.timemetadata'')' char(34) '' char(62) 'Methods' char(60) '/a' char(62) '\n\n'])">[1x1 tsdata.timemetadata]</a>
+            Data: [169x1 double]
+        DataInfo: <a href="matlab: fprintf(['  ' char(60) 'a href=' char(34) 'matlab: help tsdata.datametadata' char(34) '' char(62) 'tsdata.datametadata' char(60) '/a' char(62) '\n  Package: tsdata\n\n  Common Properties:\n               Units: ''''\n       Interpolation: linear (tsdata.interpolation)\n\n  ' char(60) 'a href=' char(34) 'matlab: properties(''tsdata.datametadata'')' char(34) '' char(62) 'More properties' char(60) '/a' char(62) ', ' char(60) 'a href=' char(34) 'matlab: methods(''tsdata.datametadata'')' char(34) '' char(62) 'Methods' char(60) '/a' char(62) '\n\n'])">[1x1 tsdata.datametadata]</a>
+
+  <a href="matlab: properties('timeseries')">More properties</a>, <a href="matlab: methods('timeseries')">Methods</a>
+
+[y, t] = [G_.Data, G_.Time];
+{Too many output arguments.
+} 
+G_out = [G_.Data, G_.Time];
+figure(G_out)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('figure')" style="font-weight:bold">figure</a>
+Argument must be a Figure object or a positive integer.
+} 
+figure(G_)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('figure')" style="font-weight:bold">figure</a>
+Figures cannot be created from non-figure handles.
+} 
+properties('timeseries')
+
+Properties for class timeseries:
+
+    Events
+    Name
+    UserData
+    Data
+    DataInfo
+    Time
+    TimeInfo
+    Quality
+    QualityInfo
+    IsTimeFirst
+    TreatNaNasMissing
+    Length
+
+figure(G_out[0], G_out[1])
+ figure(G_out[0], G_out[1])
+             ↑
+{Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check
+for mismatched delimiters.
+} 
+figure(G_.Time, G_.Data)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('figure')" style="font-weight:bold">figure</a>
+Wrong number of arguments
+} 
+plot(G_)
+grid
+stepinfo(G_)
+{Incorrect number or types of inputs or outputs for function isfinite.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('stepinfo>LocalGetInfo', 'C:\Program Files\MATLAB\R2023b\toolbox\shared\controllib\engine\stepinfo.m', 92)" style="font-weight:bold">stepinfo>LocalGetInfo</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\shared\controllib\engine\stepinfo.m',92,0)">line 92</a>)
+if isfinite(yf)
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('stepinfo', 'C:\Program Files\MATLAB\R2023b\toolbox\shared\controllib\engine\stepinfo.m', 82)" style="font-weight:bold">stepinfo</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\shared\controllib\engine\stepinfo.m',82,0)">line 82</a>)
+   [s(ct),extra(ct)] = LocalGetInfo(s(ct),extra(ct),...
+} 
+stepinfo(G_.Time, G_.Data)
+
+ans = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+         RiseTime: 0.9995
+    TransientTime: 0.9994
+     SettlingTime: 0.9994
+      SettlingMin: 5.4264
+      SettlingMax: 6
+        Overshoot: 0
+       Undershoot: 0
+             Peak: 6
+         PeakTime: 0.9995
+
+[Warning: In a future release, UI components will not be included in the output. To include UI
+components, use the exportapp function.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\graphics\printing\print.m', 86)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\graphics\printing\print.m',86,0)">line 86</a>)
+In hgexport
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn>localSaveExportHelper', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 225)" style="font-weight:bold">filemenufcn>localSaveExportHelper</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',225,0)">line 225</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn>localSaveExport', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 350)" style="font-weight:bold">filemenufcn>localSaveExport</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',350,0)">line 350</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 58)" style="font-weight:bold">filemenufcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',58,0)">line 58</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn>localSave', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 188)" style="font-weight:bold">filemenufcn>localSave</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',188,0)">line 188</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('filemenufcn', 'C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m', 56)" style="font-weight:bold">filemenufcn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2023b\toolbox\matlab\uitools\filemenufcn.m',56,0)">line 56</a>)] 
+save 240407_workspace
+diary off

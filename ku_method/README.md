@@ -42,7 +42,6 @@ $\frac{21}{(s+1)(s+3)(s+7)}$
 
     ![PID](./assets/pictures/G_PID.png)
 
-
 5. É possível observar um overshoot maior que 50, portanto vamos otimizar utlizando novamente a [tabela de Ziegler-Nichols]:
 
     ```matlab
@@ -50,6 +49,7 @@ $\frac{21}{(s+1)(s+3)(s+7)}$
     >> K_i = (2/3) * (K_u/T_u);     % 09.2207 dB
     >> K_d = (1/9) * (K_u*T_u);     % 01.9300 dB
     ```
+
 Assim, obtemos o [Modelo 3] como resposta final, com uma resposta otimizada:
 
 ![PID otimizado](./assets/pictures/PID_G_optimised.png)
