@@ -3,11 +3,16 @@ aliases:
     - oloop
     - Resposta em malha aberta
 ---
+
 # Resposta em malha aberta
 
 Considerando a planta:
 
-$G_1(s) = \frac{5}{2}\frac{1}{s^2 + 5,5s + 2,5}$ 
+$G_1(s) = \frac{5}{2}\frac{1}{s^2 + 5,5s + 2,5}$
+
+![Resposta em degrau unitário](./assets/pictures/G_1_step.png)
+
+Primeiro transformamos a resposta em um vetor para poder utilizar a ferramente "Basic Fitting"
 
 ```matlab
 >> G_1 = tf(5/2, [1 5.5 2.5]);
@@ -84,3 +89,26 @@ $G_1(s) = \frac{5}{2}\frac{1}{s^2 + 5,5s + 2,5}$
     >> s = tf('s');
     >> C_PI = 0.6 * T * (s + 1/L)^2 / s;
     ```
+
+    $C_{PI}(s)=\frac{16,508(s+11,89)^2}{s}$
+
+6. Por fim fechamos a malha do controlador, obtendo uma resposta com *overshoot* próximo de $20\%$ e tempo de assentamento menor que $0,65s$.
+
+```matlab
+>> oloop_C_PI = C_PI * G_1;
+>> cloop_C_PI = feedback(oloop_C_PI, 1);
+```
+
+![C_{PI} em malha fechada](./assets/pictures/oloop_C_PI.png)
+
+```matlab
+         RiseTime: 0.0299
+    TransientTime: 0.1776
+     SettlingTime: 0.1776 %!
+      SettlingMin: 0.9298
+      SettlingMax: 1.2104
+        Overshoot: 21.0444 %!
+       Undershoot: 0
+             Peak: 1.2104
+         PeakTime: 0.0807
+```
