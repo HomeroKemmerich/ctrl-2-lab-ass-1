@@ -9,7 +9,7 @@
 1. [Método do relé](#método-do-relé)
 1. [Conclusão](#conclusão)
 1. [Anexos](./assets)
-    1. [Tabela de Ziegler-Nichols](../ziegler_nichols.md)
+    1. [Tabela de Ziegler-Nichols](./assets/pdf/ziegler_nichols.pdf)
     1. [Modelo 1]
     1. [Modelo 2]
     1. [Modelo 3]
